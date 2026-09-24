@@ -6,7 +6,7 @@ import pandas as pd
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
-
+from sklearn.model_selection import train_test_split
 
 # ============================================================
 # CẤU HÌNH DỮ LIỆU
@@ -26,6 +26,8 @@ FEATURE_COLUMNS = [
     "Turbidity",
 ]
 
+TEST_SIZE = 0.20
+RANDOM_STATE = 42
 
 # ============================================================
 # ĐỌC DATASET
@@ -112,6 +114,45 @@ def split_features_target(dataframe):
 
     return X, y
 
+
+def split_train_test(
+    X,
+    y,
+    test_size=TEST_SIZE,
+    random_state=RANDOM_STATE,
+):
+    """
+    Chia dữ liệu thành tập train và test.
+
+    Sử dụng stratify=y để giữ tỷ lệ hai lớp Potability
+    gần giống nhau giữa train và test.
+
+    Parameters
+    ----------
+    X : pandas.DataFrame
+        Các feature đầu vào.
+
+    y : pandas.Series
+        Biến mục tiêu Potability.
+
+    test_size : float
+        Tỷ lệ dữ liệu dành cho test.
+
+    random_state : int
+        Seed giúp kết quả chia dữ liệu có thể tái lập.
+
+    Returns
+    -------
+    X_train, X_test, y_train, y_test
+    """
+
+    return train_test_split(
+        X,
+        y,
+        test_size=test_size,
+        random_state=random_state,
+        stratify=y,
+    )
 
 # ============================================================
 # PIPELINE CÓ STANDARD SCALER
