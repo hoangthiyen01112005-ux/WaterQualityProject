@@ -1,1 +1,7 @@
-# Add runtime dependencies when the model service is implemented.
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+jupyter
+joblib
