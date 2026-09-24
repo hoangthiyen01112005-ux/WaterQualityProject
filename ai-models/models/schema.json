@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "problem_type": "binary_classification",
+  "target": {
+    "name": "Potability",
+    "type": "integer",
+    "labels": {
+      "0": "Not Potable",
+      "1": "Potable"
+    }
+  },
+  "input_features": [
+    {
+      "name": "ph",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "Hardness",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "Solids",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "Chloramines",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "Sulfate",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "Conductivity",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "Organic_carbon",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "Trihalomethanes",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "Turbidity",
+      "type": "number",
+      "required": true
+    }
+  ],
+  "feature_order": [
+    "ph",
+    "Hardness",
+    "Solids",
+    "Chloramines",
+    "Sulfate",
+    "Conductivity",
+    "Organic_carbon",
+    "Trihalomethanes",
+    "Turbidity"
+  ],
+  "preprocessing": {
+    "missing_value_strategy": "median",
+    "scaling_for_logistic_regression": "StandardScaler",
+    "scaling_for_svm": "StandardScaler"
+  }
+}
